@@ -7,7 +7,8 @@ import * as bcrypt from 'bcrypt';
 export class AuthService {
   constructor(private readonly userService: UserService) {}
   async register(registerUserDto: RegisterDto) {
-    await bcrypt.hash(registerUserDto.password, 10);
+    const hashPass = await bcrypt.hash(registerUserDto.password, 10);
+    registerUserDto.password = hashPass;
     return this.userService.createUser(registerUserDto);
   }
 }
