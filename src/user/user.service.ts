@@ -23,4 +23,10 @@ export class UserService {
       }
     }
   }
+  async getUserByEmail(email: string) {
+    return this.UserModal.findOne({ email: email });
+  }
+  async getAllUsers() {
+    return this.UserModal.find();
+  }
 }
