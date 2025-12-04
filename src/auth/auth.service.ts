@@ -33,4 +33,7 @@ export class AuthService {
   async getAllUsers() {
     return this.userService.getAllUsers();
   }
+  async getSingleUser(id: string) {
+    return await this.userService.getUserById(id);
+  }
 }

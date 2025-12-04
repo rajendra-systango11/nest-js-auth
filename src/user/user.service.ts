@@ -26,6 +26,9 @@ export class UserService {
   async getUserByEmail(email: string) {
     return this.UserModal.findOne({ email: email });
   }
+  async getUserById(id: string) {
+    return this.UserModal.findOne({ _id: id });
+  }
   async getAllUsers() {
     return this.UserModal.find();
   }
